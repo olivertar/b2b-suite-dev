@@ -1,0 +1,16 @@
+parameters:
+    level: 8
+    paths:
+        - packages
+    disallowedStaticCalls:
+        -
+            method: 'Magento\Framework\App\ObjectManager::getInstance()'
+            message: 'inject dependencies through the constructor'
+            allowIn:
+                - packages/*/Test/*
+    disallowedClasses:
+        -
+            class: 'Magento\Framework\ObjectManagerInterface'
+            message: 'inject dependencies through the constructor'
+            allowIn:
+                - packages/*/Test/*

@@ -2,12 +2,22 @@
     "name": "olivertar/b2b-suite-dev",
     "description": "Development monorepo for the MageOS B2B example suite.",
     "type": "project",
-    "license": ["OSL-3.0", "AFL-3.0"],
+    "license": [
+        "OSL-3.0",
+        "AFL-3.0"
+    ],
     "require": {
         "php": "~8.3.0||~8.4.0||~8.5.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "^10.5"
+        "bitexpert/phpstan-magento": "^0.44",
+        "mage-os/framework": "^4.0",
+        "mage-os/magento-coding-standard": "^4.0",
+        "phpstan/extension-installer": "^1.4",
+        "phpstan/phpstan": "^2.1",
+        "phpunit/phpunit": "^10.5",
+        "slevomat/coding-standard": "^8.22",
+        "spaze/phpstan-disallowed-calls": "^4.15"
     },
     "autoload-dev": {
         "psr-4": {
@@ -17,6 +27,23 @@
         }
     },
     "scripts": {
+        "analyse": "phpstan analyse --no-progress",
+        "cs": "phpcs",
         "test": "phpunit"
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://repo.mage-os.org/"
+        }
+    ],
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "mage-os/composer-dependency-version-audit-plugin": false,
+            "mage-os/magento-composer-installer": false,
+            "phpstan/extension-installer": true
+        },
+        "sort-packages": true
     }
 }
