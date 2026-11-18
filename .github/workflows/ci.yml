@@ -18,6 +18,7 @@ jobs:
         with:
           php-version: '8.4'
           coverage: none
+          extensions: bcmath, gd, intl, soap, sockets, sodium, xsl, zip
       - name: Validate package manifests
         run: |
           for manifest in packages/*/composer.json; do
@@ -25,10 +26,14 @@ jobs:
           done
       - name: Check PHP syntax
         run: find packages -name '*.php' -print0 | xargs -0 -n1 php -l
+      - name: Install development tools
+        run: composer install --no-interaction --no-progress
+      - name: Run PHPStan
+        run: composer analyse
+      - name: Run PHP_CodeSniffer
+        run: composer cs
       - name: Run unit tests
-        run: |
-          composer install --no-interaction --no-progress
-          composer test
+        run: composer test
       - name: Verify the suite resolves against Mage-OS
         run: bin/verify-install.sh
 
