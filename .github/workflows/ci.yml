@@ -1,0 +1,52 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+    tags: ['v*']
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.4'
+          coverage: none
+      - name: Validate package manifests
+        run: |
+          for manifest in packages/*/composer.json; do
+            composer validate --no-check-publish --no-check-lock "$manifest"
+          done
+      - name: Check PHP syntax
+        run: find packages -name '*.php' -print0 | xargs -0 -n1 php -l
+      - name: Run unit tests
+        run: |
+          composer install --no-interaction --no-progress
+          composer test
+      - name: Verify the suite resolves against Mage-OS
+        run: bin/verify-install.sh
+
+  split:
+    if: github.event_name == 'push' && !github.event.repository.fork
+    needs: test
+    runs-on: ubuntu-latest
+    concurrency: split
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Publish packages to read-only repositories
+        env:
+          SPLIT_TOKEN: ${{ secrets.SPLIT_TOKEN }}
+          OWNER: ${{ github.repository_owner }}
+          TAG: ${{ github.ref_type == 'tag' && github.ref_name || '' }}
+        run: |
+          git config --global url."https://x-access-token:${SPLIT_TOKEN}@github.com/".insteadOf "https://github.com/"
+          bin/split.sh "https://github.com/${OWNER}" "$TAG"

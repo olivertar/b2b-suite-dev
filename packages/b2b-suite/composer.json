@@ -1,0 +1,16 @@
+{
+    "name": "olivertar/b2b-suite",
+    "description": "Example metapackage that installs every MageOS B2B module.",
+    "type": "metapackage",
+    "license": ["OSL-3.0", "AFL-3.0"],
+    "require": {
+        "olivertar/module-b2b-company": "self.version",
+        "olivertar/module-b2b-role": "self.version",
+        "olivertar/module-b2b-prices": "self.version"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-main": "1.x-dev"
+        }
+    }
+}

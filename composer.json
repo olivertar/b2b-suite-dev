@@ -1,0 +1,22 @@
+{
+    "name": "olivertar/b2b-suite-dev",
+    "description": "Development monorepo for the MageOS B2B example suite.",
+    "type": "project",
+    "license": ["OSL-3.0", "AFL-3.0"],
+    "require": {
+        "php": "~8.3.0||~8.4.0||~8.5.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.5"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "MageOS\\B2BCompany\\": "packages/module-b2b-company/",
+            "MageOS\\B2BRole\\": "packages/module-b2b-role/",
+            "MageOS\\B2BPrices\\": "packages/module-b2b-prices/"
+        }
+    },
+    "scripts": {
+        "test": "phpunit"
+    }
+}
