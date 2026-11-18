@@ -16,4 +16,9 @@ class CompanyPrice
     {
         return round($price * (1 - $this->companyProvider->getDiscountPercent() / 100), 2);
     }
+
+    public function discountAmount(float $price): float
+    {
+        return round($price - $this->apply($price), 2);
+    }
 }
