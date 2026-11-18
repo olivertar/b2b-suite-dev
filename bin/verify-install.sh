@@ -16,7 +16,7 @@ cat > "$store/composer.json" <<JSON
         {"type": "composer", "url": "https://repo.mage-os.org/"}
     ],
     "require": {
-        "olivertar/b2b-suite": "1.x-dev"
+        "olivertar/b2b-suite": "*"
     },
     "config": {
         "allow-plugins": false
@@ -24,6 +24,6 @@ cat > "$store/composer.json" <<JSON
 }
 JSON
 
-COMPOSER_ROOT_VERSION=dev-main composer update --working-dir="$store" \
+composer update --working-dir="$store" \
     --no-install --no-scripts --no-audit --no-interaction --ignore-platform-reqs
 echo "The suite resolves against Mage-OS."
