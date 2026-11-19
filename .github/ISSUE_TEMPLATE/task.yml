@@ -1,0 +1,26 @@
+name: Task
+description: Track technical work that is not a use case, such as tooling, refactoring or documentation.
+title: "[Task] "
+labels: ["type:task", "needs-triage"]
+body:
+  - type: textarea
+    id: goal
+    attributes:
+      label: Goal
+      description: What should be true when this task is done?
+    validations:
+      required: true
+  - type: textarea
+    id: done
+    attributes:
+      label: Definition of done
+      value: |
+        - [ ]
+        - [ ]
+    validations:
+      required: true
+  - type: textarea
+    id: references
+    attributes:
+      label: References
+      description: Related Discussions, ADRs, issues or pull requests.

@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Ideas and questions
+    url: https://github.com/olivertar/b2b-suite-dev/discussions/categories/ideas
+    about: Explore an idea or ask a question before opening an issue.
+  - name: Propose a new module
+    url: https://github.com/olivertar/b2b-suite-dev/discussions/categories/module-proposals
+    about: Module proposals are discussed before they become issues.
