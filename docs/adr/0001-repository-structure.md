@@ -3,7 +3,7 @@
 - **Status:** Proposed
 - **Author:** @olivertar
 - **Review deadline:** 2026-11-26
-- **Discussion:** this pull request
+- **Discussion:** https://github.com/olivertar/b2b-suite-dev/discussions/10
 
 ## Context
 
