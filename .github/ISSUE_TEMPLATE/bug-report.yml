@@ -1,0 +1,51 @@
+name: Bug report
+description: Report behavior that does not work as documented.
+title: "[Bug] "
+labels: ["type:bug", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Do not include credentials, tokens, `env.php` content or customer data.
+        Report security vulnerabilities privately to the maintainers instead of opening an issue.
+  - type: dropdown
+    id: module
+    attributes:
+      label: Module
+      options:
+        - Company
+        - Role
+        - Prices
+        - Not sure
+    validations:
+      required: true
+  - type: input
+    id: versions
+    attributes:
+      label: Versions
+      placeholder: B2B Suite 1.0.0, Mage-OS 4.0.0, PHP 8.4
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      value: |
+        1.
+        2.
+        3.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected result
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual result
+      description: Include error messages and relevant log lines.
+    validations:
+      required: true

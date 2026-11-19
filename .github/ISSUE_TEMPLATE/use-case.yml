@@ -1,0 +1,73 @@
+name: Use case
+description: Describe one behavior that a B2B module must support.
+title: "[Use case] "
+labels: ["type:use-case", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        One issue describes one use case. Describe what the user needs, not how to build it.
+        The acceptance criteria become the first tests of the pull request.
+  - type: dropdown
+    id: module
+    attributes:
+      label: Module
+      options:
+        - Company
+        - Role
+        - Prices
+        - New module or not sure
+    validations:
+      required: true
+  - type: input
+    id: actor
+    attributes:
+      label: Actor
+      description: Who performs the action?
+      placeholder: Company administrator, buyer, store administrator, guest
+    validations:
+      required: true
+  - type: textarea
+    id: story
+    attributes:
+      label: User story
+      value: |
+        As a ...
+        I want to ...
+        So that ...
+    validations:
+      required: true
+  - type: textarea
+    id: criteria
+    attributes:
+      label: Acceptance criteria
+      description: Write one scenario for each rule, including failure cases.
+      value: |
+        Scenario: ...
+          Given ...
+          When ...
+          Then ...
+      render: gherkin
+    validations:
+      required: true
+  - type: textarea
+    id: out-of-scope
+    attributes:
+      label: Out of scope
+      description: Related behavior that this use case does not cover.
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Proposed priority
+      options:
+        - Must have
+        - Should have
+        - Could have
+        - Won't have in this release
+    validations:
+      required: true
+  - type: textarea
+    id: references
+    attributes:
+      label: References
+      description: Related Discussions, ADRs, issues, or similar features in other platforms.

@@ -1,0 +1,68 @@
+title: "[Module] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Propose one module per Discussion. Focus on the problem and the scope.
+        Reply with questions and concerns in threads. The author posts the outcome when the review deadline passes.
+  - type: input
+    id: name
+    attributes:
+      label: Module name
+      placeholder: Company, Shared Catalog, Quick Order, Requisition List
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: Which B2B merchant or buyer problem does this module solve?
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope
+      description: Main capabilities, as a short list. Detailed use cases come later as issues.
+    validations:
+      required: true
+  - type: textarea
+    id: out-of-scope
+    attributes:
+      label: Out of scope
+    validations:
+      required: true
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Dependencies
+      description: Other suite modules and Mage-OS core modules it needs.
+    validations:
+      required: true
+  - type: textarea
+    id: prior-art
+    attributes:
+      label: Prior art
+      description: Similar features in Adobe Commerce B2B, other platforms or existing extensions.
+  - type: dropdown
+    id: release
+    attributes:
+      label: Proposed release
+      options:
+        - First release (MVP)
+        - Later release
+        - Not sure
+    validations:
+      required: true
+  - type: input
+    id: deadline
+    attributes:
+      label: Review deadline
+      description: Default is 7 days after the proposal is ready for review.
+      placeholder: YYYY-MM-DD
+    validations:
+      required: true
+  - type: textarea
+    id: questions
+    attributes:
+      label: Open questions
