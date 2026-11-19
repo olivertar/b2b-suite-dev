@@ -20,3 +20,4 @@ Do not rewrite an accepted ADR. Open a new ADR that supersedes it, and change th
 
 | ADR | Title | Status |
 | --- | --- | --- |
+| [0001](0001-repository-structure.md) | Repository structure, packaging and versioning | Proposed |
