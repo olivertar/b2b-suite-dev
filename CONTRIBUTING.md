@@ -12,7 +12,7 @@ This project is run in the open on GitHub. Every idea, decision and task has one
 | Describe behavior a module must support | Issue with the **Use case** form | A pull request delivers it |
 | Report a defect | Issue with the **Bug report** form | A pull request fixes it |
 | Track technical work that is not a use case | Issue with the **Task** form | A pull request completes it |
-| See priorities and progress | The [project board](https://github.com/users/olivertar/projects) | Never; it is the live plan |
+| See priorities and progress | The [project board](https://github.com/users/olivertar/projects/1) | Never; it is the live plan |
 
 Chat platforms such as Discord are fine for quick talk. A decision made in chat or in a call is not final until it is written in a Discussion or an ADR.
 
